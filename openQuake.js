@@ -16,8 +16,6 @@
         console.log("为mj老板定制！");
         const outputButton = document.querySelector('.picker-box button');
         const preposition = document.querySelector('.model-box');
-        // const preButton = document.querySelector('.btn-prev');
-        // const parentElement = document.querySelector('.is-background')
 
         if (outputButton) {
             const openButton = outputButton.cloneNode(true);
@@ -25,26 +23,37 @@
             openButton.type = 'button';
             openButton.style.marginLeft = '1em';
             openButton.addEventListener('click', function() {
-                // 使用 querySelectorAll 方法获取具有类名 'item-top-line' 的所有元素
-                var itemTopLineElements = document.querySelectorAll('.item-top-line');
 
-                // 遍历每个 'item-top-line' 元素
-                itemTopLineElements.forEach(function(itemTopLine) {
-                    // 在每个 'item-top-line' 元素中查找所有的 <a> 标签
-                    var aElements = itemTopLine.querySelectorAll('a');
-                    
-                    // 遍历每个 <a> 元素
-                    aElements.forEach(function(a) {
-                        // 对每个 <a> 元素进行操作
-                        console.log(a); // 输出 <a> 元素
-                        // 如果你想在新标签页中打开链接，可以这样做：
-                        window.open(a.href, '_blank');
+                //查找两种模式下含有跳转按钮的div
+                var ClassElements = document.querySelectorAll('.item-top-line');
+                var TableElements = document.querySelectorAll('.el-table__fixed-right');
+                
+                // 遍历每个 大类元素，查找所有<a>标签，打开所有<a>里的链接
+
+                //经典模式
+                if (ClassElements){
+                    ClassElements.forEach(function(itemTopLine) {
+                        var aElements = itemTopLine.querySelectorAll('a');
+                        aElements.forEach(function(a) {
+                            console.log(a);
+                            window.open(a.href, '_blank');
+                        });
                     });
-                });
+                }
+
+                //列表模式
+                if (TableElements){
+                    TableElements.forEach(function(rightLine) {
+                        var bElements = rightLine.querySelectorAll('a');
+                        bElements.forEach(function(a) {
+                            console.log(a);
+                            window.open(a.href, '_blank');
+                        });
+                    });
+                }
+
             });
             preposition.appendChild(openButton);
-            // const openButton2=openButton.cloneNode(true)
-            // parentElement.insertBefore(openButton2,preButton);
         }
     });
 })();
