@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         一键打开360夸克所有资产
 // @namespace    http://tampermonkey.net/
-// @version      2024-06-13
+// @version      2024-06-13 v0.2
 // @description  一键打开360夸克所有资产，为mj老板定制！
 // @author       Tajang
 // @match        https://quake.360.net/quake/
